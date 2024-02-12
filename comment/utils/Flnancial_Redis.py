@@ -3,4 +3,4 @@
 
 from flask_redis import FlaskRedis
 
-fr = FlaskRedis();
+fr = FlaskRedis()

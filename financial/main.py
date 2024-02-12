@@ -7,5 +7,8 @@ from financial import creat_app
 
 app = creat_app('development')
 
+from comment.models.user import User
+from comment.models.account import Account
+
 if __name__ == '__main__':
     app.run()

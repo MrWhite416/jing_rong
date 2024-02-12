@@ -50,17 +50,19 @@ def create_logger(app):
 
     # TimedRotatingFileHandler：根据时间来规定日志文件的生成规则
     flask_file_handler = logging.handlers.TimedRotatingFileHandler(filename=os.path.join(logging_file_dir, 'shopping.log'),
-                                                              when='D', interval=1,
+                                                              when='D', interval=1,  # when--时间单位（D是天），interval--具体的时间数（此处为1天）
                                                               backupCount=logging_file_backup)
 
     # 给当前的handler设置格式
     flask_file_handler.setFormatter(request_formatter)
-    # 得到一个logger对象，根据包的名字
+    # 得到一个logger对象，根据包的名字，如果存在则获取到该logger对象，如果不存在则根据名称创建一个logger对象
+    # 所有核心的业务逻辑（资源接口）都在financial中，所以日志的生成也是因为它，所以使用该包名
     flask_logger = logging.getLogger('financial')
     flask_logger.addHandler(flask_file_handler)
     flask_logger.setLevel(logging_level)
 
     # 整个项目需要两个handler：文件，控制台
+    # StreamHandler是将日志输出到控制台上
     flask_console_handler = logging.StreamHandler()
     flask_console_handler.setFormatter(logging.Formatter('[%(asctime)s] %(levelname)s %(module)s %(lineno)d : %('
                                                          'message)s'))

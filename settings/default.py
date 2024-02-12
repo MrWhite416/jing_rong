@@ -7,15 +7,15 @@ class Config:
     # 配置数据库和SQLAlchemy
     HOSTNAME = '127.0.0.1'
     PORT = '3306'
-    DATABASE = 'msb_finance'
+    DATABASE = 'finance'
     USERNAME = 'root'
     PASSWORD = 'root'
 
-    DB_URL = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}?/charset=utf8mb4'
+    DB_URI = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}?/charset=utf8mb4'
     # 数据库的连接URL
 
 
-    SQLALCHEMY_DATABASE_URL = DB_URL  # 将数据库的连接URL赋值给环境变量
+    SQLALCHEMY_DATABASE_URI = DB_URI  # 将数据库的连接URL赋值给环境变量
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # 不需要跟踪数据的修改，此功能一般建议关闭（开启可能会影响性能）
     # 均为环境变量
 
