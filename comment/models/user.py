@@ -14,28 +14,28 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class User(db.Model):
     __tablename__ = 't_user'
     id = db.Column(db.BIGINT, primary_key=True, autoincrement=True)
-    username = db.Column(db.String(64), doc='用户名')
-    password = db.Column(db.String(128), doc='密码')
-    payPassword = db.Column(db.String(128), doc='支付密码')
-    payPwdStatus = db.Column(db.Integer, doc='支付密码验证', default=0)
-    email = db.Column(db.String(100), doc='邮箱')
-    emailStatus = db.Column(db.Integer, doc='邮箱验证', default=0)  # 1代码正常
-    inviteId = db.Column(db.Integer, doc='邀请码')
-    ip = db.Column(db.String(128), doc='ip')
-    phone = db.Column(db.String(11), doc='手机号')
-    onlock = db.Column(db.Integer, doc='用户状态')  # 0代码正常
-    phoneStatus = db.Column(db.Integer, doc='手机验证', default=1)  # 1代码正常
-    realName = db.Column(db.String(64), doc='真实姓名')
-    remark = db.Column(db.String(500), doc='备注')
-    realNameStatus = db.Column(db.Integer, doc='实名认证', default=0)  # 代表已认证
-    nick_name = db.Column(db.String(200), doc='昵称')
-    avatar = db.Column(db.String(128), doc='头像')
-    idNum = db.Column(db.String(64), doc='身份证号码')
-    sumFriends = db.Column(db.Integer, doc='邀请数量统计')
-    role = db.Column(db.Integer, doc='是否管理员', default=0)  # 0普通用户 1管理员
+    username = db.Column(db.String(64), comment='用户名')
+    password = db.Column(db.String(128), comment='密码')
+    payPassword = db.Column(db.String(128), comment='支付密码')
+    payPwdStatus = db.Column(db.Integer, comment='支付密码验证', default=0)
+    email = db.Column(db.String(100), comment='邮箱')
+    emailStatus = db.Column(db.Integer, comment='邮箱验证', default=0)  # 1代码正常
+    inviteId = db.Column(db.Integer, comment='邀请码')
+    ip = db.Column(db.String(128), comment='ip')
+    phone = db.Column(db.String(11), comment='手机号')
+    onlock = db.Column(db.Integer, comment='用户状态')  # 0代码正常
+    phoneStatus = db.Column(db.Integer, comment='手机验证', default=1)  # 1代码正常
+    realName = db.Column(db.String(64), comment='真实姓名')
+    remark = db.Column(db.String(500), comment='备注')
+    realNameStatus = db.Column(db.Integer, comment='实名认证', default=0)  # 代表已认证
+    nick_name = db.Column(db.String(200), comment='昵称')
+    avatar = db.Column(db.String(128), comment='头像')
+    idNum = db.Column(db.String(64), comment='身份证号码')
+    sumFriends = db.Column(db.Integer, comment='邀请数量统计')
+    role = db.Column(db.Integer, comment='是否管理员', default=0)  # 0普通用户 1管理员
 
-    loginTime = db.Column(db.DateTime, default=datetime.now(), doc='登录时间')
-    registerTime = db.Column(db.DateTime, default=datetime.now(), doc='用户注册的时间')
+    loginTime = db.Column(db.DateTime, default=datetime.now(), comment='登录时间')
+    registerTime = db.Column(db.DateTime, default=datetime.now(), comment='用户注册的时间')
 
     # 定义pwd的getter函数
     @property

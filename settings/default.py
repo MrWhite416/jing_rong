@@ -11,7 +11,7 @@ class Config:
     USERNAME = 'root'
     PASSWORD = 'root'
 
-    DB_URI = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}?/charset=utf8mb4'
+    DB_URI = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}?charset=utf8mb4'
     # 数据库的连接URL
 
 
@@ -21,18 +21,18 @@ class Config:
 
 
     # 日志的配置
-    LOGGING_LEVEL = 'DEBUG'  # 日志级别
-    LOGGING_FILE_DIR = 'logs/'  # 日志文件目录
-    LOGGING_FILE_MAX_BYTES = 300 * 1024 * 1024  # 单个日志文件最大存储字节数
-    LOGGING_FILE_BACKUP = 100  # 日志文件备份数量
+    LOGING_LEVEL = 'DEBUG'  # 日志级别
+    LOGING_FILE_DIR = 'logs/'  # 日志文件目录
+    LOGING_FILE_MAX_BYTES = 300 * 1024 * 1024  # 单个日志文件最大存储字节数
+    LOGING_FILE_BACKUP = 100  # 日志文件备份数量
 
 
     # 限流器的redis数据库配置
-    RATELIMIT_STORAGE_URL = 'redis://192.168.23.3:6379/0'
+    RATELIMIT_STORAGE_URL = 'redis://192.168.44.134:6379/0'
     # 限流策略：移动窗口：时间窗口会自动变化
     RATELIMIT_STRATEGY = 'moving-window'
 
-    REDIS_URL = 'redis://192.168.23.3:6379/1'
+    REDIS_URL = 'redis://192.168.44.134:6379/1'
 
 
 # 开发环境下的配置信息

@@ -11,7 +11,7 @@ Python对象序列化的基类
 class BasePaginateSerializer(object):
     """分页数据序列化基类"""
 
-    def __init__(self, paginate):  # 简化代码，可以满足对象的拷贝
+    def __init__(self, paginate):  # 接收一个分页数据的对象为参数，简化代码，可以满足对象的拷贝
         self.pg = paginate
         if not self.pg:
             return paginate
@@ -21,9 +21,10 @@ class BasePaginateSerializer(object):
         self.page = self.pg.page  # 当前页的页码
         self.pages = self.pg.pages  # 匹配的元素在当前配置一共有多少页
         self.total = self.pg.total  # 匹配的元素总数
+        self.page_size = self.pg.page_size  # 一页最多显示多少条数据
 
     def get_object(self, obj):
-        """对象的内容,系列化的个性操作,子类重写"""
+        """对象的内容,序列化的个性操作,子类重写"""
         return {}
 
     #
@@ -35,7 +36,8 @@ class BasePaginateSerializer(object):
             'next_num': self.next_num,
             'page': self.page,
             'pages': self.pages,
-            'total': self.total
+            'total': self.total,
+            'page_size':self.page_size
         }
 
     def to_dict(self):
@@ -45,9 +47,9 @@ class BasePaginateSerializer(object):
         for obj in self.pg.items:
             paginate_data.append(self.get_object(obj))
         return {
-            'paginateInfo': pg_info,
-            'totalElements': pg_info['total'],
-            'content': paginate_data
+            'paginateInfo': pg_info,  # 分页对象本身
+            'totalElements': pg_info['total'],  # 总记录数
+            'content': paginate_data  # 当前页所需要展示的数据列表
         }
 
 

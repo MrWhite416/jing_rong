@@ -27,8 +27,8 @@ def create_logger(app):
     :param app: Flask中的app对象
     :return:
     """
-    logging_file_dir = app.config['LOGGING_FILE_DIR']  # 日志文件所在的目录
-    logging_file_max_bytes = app.config['LOGGING_FILE_MAX_BYTES']  # 日志文件最大的大小
+    logging_file_dir = app.config['LOGING_FILE_DIR']  # 日志文件所在的目录
+    logging_file_max_bytes = app.config['LOGING_FILE_MAX_BYTES']  # 日志文件最大的大小
     logging_file_backup = app.config['LOGING_FILE_BACKUP']  # 保留备份的日志文件个数
     logging_level = app.config['LOGING_LEVEL']  # 默认的日志级别
 
@@ -48,8 +48,9 @@ def create_logger(app):
     #                                      maxBytes=logging_file_max_bytes,
     #                                      backupCount=logging_file_backup)
 
+    # 为了让一个进程操作一个文件，所以文件命名时加上当前进程ID
     # TimedRotatingFileHandler：根据时间来规定日志文件的生成规则
-    flask_file_handler = logging.handlers.TimedRotatingFileHandler(filename=os.path.join(logging_file_dir, 'shopping.log'),
+    flask_file_handler = logging.handlers.TimedRotatingFileHandler(filename=os.path.join(logging_file_dir, 'financial'+str(os.getpid())+'.log'),
                                                               when='D', interval=1,  # when--时间单位（D是天），interval--具体的时间数（此处为1天）
                                                               backupCount=logging_file_backup)
 
