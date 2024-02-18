@@ -14,8 +14,8 @@ from comment.utils.Flnancial_Redis import fr
 from comment.models import db
 from financial.resources.user import constans
 from flask_limiter.util import get_remote_address
-
-
+from comment.utils.token_pyjwt import generate_tokens,verify_tokens
+from comment.utils.decorators import login_required
 
 class TestUser(Resource):
     '''
@@ -31,6 +31,95 @@ class TestUser(Resource):
 
     def put(self):
         return {'test':'put响应'}
+
+
+class Login(Resource):
+
+    '''
+    登录
+    '''
+
+    def post(self):
+        rp = RequestParser()
+        rp.add_argument('username',required=True)
+        rp.add_argument('password',required=True)
+        args = rp.parse_args()
+        username = args.get('username')
+        password = args.get('password')
+
+        user = User.query.filter(User.username == username).first()
+        if user:
+            # 验证密码是否正确
+            if user.check_password(password):
+                # 用户登录成功，之后产生一个token，以便于后面去认证token
+                token = generate_tokens(user.id)
+                current_app.logger.info(token)
+                current_app.logger.info('测试token',verify_tokens(token))
+                return {"token":token}
+            return {'message':'用户名或者密码错误','code':201}
+
+class LoginOut(Resource):
+    '''
+    退出登录
+    '''
+
+    # flask中使用装饰器是，直接将装饰器添加到给method_decorators列表
+    method_decorators = [login_required]
+
+    # 如果想给当前类的某个视图函数个性化的使用装饰器
+    # 不写就是不加装饰器
+    # method_decorators = {
+    #     '函数名':['装饰器'],
+    #     'post':[login_required],
+    #     'get':[]
+    # }
+
+    # 具体删除token操作在前端实现
+    def post(self):
+        if g.user_id:
+            g.user_id = None
+        return {'msg':'成功退出登录'}
+
+
+class UserAvatar(Resource):
+    '''
+    管理用户的头像
+    '''
+
+    # 需要验证登录与否
+    method_decorators = [login_required]
+
+    def post(self):
+        '''
+        上传用户头像图片
+        :return:
+        '''
+
+        # 用户上传的图片数据
+        # files获取用户上传的所有文件，是字典类型
+        img_data = request.files['file']
+
+        u_id = g.user_id
+        user = User.query.filter(User.id == u_id).first()
+
+        # 设置用户头像图片保存
+        img_dir = current_app.config['AVATAR_DIR']
+        # 设置头像文件的名字，img_data.filename 原始的文件名
+        img_name = str(u_id) + '_' + img_data.filename
+
+        file_path = img_dir + '\\' + img_name
+
+        # 保存文件
+        img_data.save(file_path)
+
+        # 在数据库中保存用户头像图片的文件名
+        if user:
+            user.avatar = img_name
+            db.session.commit()
+            return {'msg':'上传头像图片成功','avatar':img_name}
+
+
+
 
 
 class RegisterUser(Resource):
@@ -68,19 +157,34 @@ class RegisterUser(Resource):
             current_app.logger.info('验证码错误或者失效！')
             return {'message':'验证码错误或者失效！','code':201}
 
-        # 保存用户到数据库
-        user = User(username=username,phone=phone,pwd=password)
+        user = User(username=username, phone=phone, pwd=password)
 
+        # 验证和关联邀请码
+        if invite_code:
+            self.check_invite(user,invite_code)
+
+        # 保存用户到数据库
         try:  # 需要用到数据库的事务处理
             db.session.add(user)
             db.session.flush()  # 把数据插入数据库的缓冲区（得到自增的id），并不是真正的插入数据
             account = Account(userId=user.id)  # 创建当前用户的账户对象
             db.session.add(account)
-            db.session.commit()
-
+            db.session.commit()  # 真正的插入数据操作
+            return {'msg':'success'}
 
         except Exception as e:
             current_app.logger.error(e)
+            db.session.rollback()  # 回滚，哪一步报错就回到哪一步
+            return {'message':'用户注册时，插入数据库失败','code':201}
+
+    def check_invite(self,user,invite_code):
+        code = invite_code.strip()
+        invite_user = User.query.filter(User.inviteId == code).first()
+        if invite_user:
+            user.invite_user_id = invite_user.id  # 如果邀请码有效，则把这两个用户关联一下
+            invite_user.accountInfo.discount += constans.INVITE_MONEY  # 邀请用户的账户中增加50元的代金券
+            invite_user.sumFriends += 1  # 邀请新用户的数量加一
+
 
 
 

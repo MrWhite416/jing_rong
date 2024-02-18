@@ -34,6 +34,9 @@ class Config:
 
     REDIS_URL = 'redis://192.168.44.134:6379/1'
 
+    # 用户头像图片的保存目录配置
+    AVATAR_DIR = r'financial\static\avatar'
+
 
 # 开发环境下的配置信息
 class DevelopmentConfig(Config):

@@ -25,7 +25,10 @@ from financial.resources.user.user_resource import *
 user_api.add_resource(TestUser,'/test',endpoint='test')
 user_api.add_resource(IsExistPhone,'/isExist',endpoint='isExist')
 user_api.add_resource(SendSMS,'/sendSMS',endpoint='sendSMS')
-
+user_api.add_resource(RegisterUser,'/user_register',endpoint='user_register')
+user_api.add_resource(Login,'/login',endpoint='login')
+user_api.add_resource(LoginOut,'/login_out',endpoint='login_out')
+user_api.add_resource(UserAvatar,'/user_avatar',endpoint='user_avatar')
 
 
 

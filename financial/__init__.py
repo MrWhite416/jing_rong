@@ -36,6 +36,12 @@ def creat_app(run_type):
     # 当前项目没有默认的项目入口文件，需要设置（不设置就会采用默认的）。
     Migrate(app,db)
 
+    # 注册token认证的请求钩子
+    from comment.utils.requests_wares import jwt_request_authorization
+    app.before_request(jwt_request_authorization)
+
+
+
     # 加载蓝图
     from financial.resources.user import bp_user
 

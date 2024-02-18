@@ -23,7 +23,7 @@ class User(db.Model):
     inviteId = db.Column(db.Integer, comment='邀请码')
     ip = db.Column(db.String(128), comment='ip')
     phone = db.Column(db.String(11), comment='手机号')
-    onlock = db.Column(db.Integer, comment='用户状态')  # 0代码正常
+    onlock = db.Column(db.Integer, comment='用户状态')  # 0代码表示上锁
     phoneStatus = db.Column(db.Integer, comment='手机验证', default=1)  # 1代码正常
     realName = db.Column(db.String(64), comment='真实姓名')
     remark = db.Column(db.String(500), comment='备注')
@@ -32,6 +32,7 @@ class User(db.Model):
     avatar = db.Column(db.String(128), comment='头像')
     idNum = db.Column(db.String(64), comment='身份证号码')
     sumFriends = db.Column(db.Integer, comment='邀请数量统计')
+    invite_user_id = db.Column(db.Integer,comment='邀请的用户的ID')
     role = db.Column(db.Integer, comment='是否管理员', default=0)  # 0普通用户 1管理员
 
     loginTime = db.Column(db.DateTime, default=datetime.now(), comment='登录时间')
