@@ -1,0 +1,1 @@
+[2024-02-18 22:13:45,113] 127.0.0.1  ЧыЧѓ http://127.0.0.1:5000/user/user_avatar 	 ERROR дк token_pyjwt 50 : Signature verification failed

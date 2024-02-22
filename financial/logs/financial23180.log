@@ -1,0 +1,5 @@
+[2024-02-21 20:55:40,456] 127.0.0.1  请求 http://127.0.0.1:5000/notify/message?curPage=1&perPage=10 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-02-21 20:55:47,181] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4NTIzNzQ3fQ.T00YC4tcpqBt4GsTyraf5V73UE0k1QbT6ThTAjEb6LY
+[2024-02-21 20:55:47,182] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708523747}
+[2024-02-21 20:55:47,184] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 58 : 测试token
+[2024-02-21 20:55:55,665] 127.0.0.1  请求 http://127.0.0.1:5000/notify/message?curPage=1&perPage=10 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708523747}

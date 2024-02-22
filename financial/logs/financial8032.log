@@ -1,0 +1,4 @@
+[2024-02-18 22:19:19,353] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4MjY5NTU5fQ.9fTliFdHUH6EzjfGvwrEZe-Zfs4R4b8O_LH_H7ut7so
+[2024-02-18 22:19:19,353] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708269559}
+[2024-02-18 22:19:19,355] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 58 : 测试token
+[2024-02-18 22:19:28,809] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708269559}

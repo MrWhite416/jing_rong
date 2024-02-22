@@ -44,8 +44,10 @@ def creat_app(run_type):
 
     # 加载蓝图
     from financial.resources.user import bp_user
+    from financial.resources.letter import letter_bp
 
     app.register_blueprint(bp_user)  # 注册蓝图
+    app.register_blueprint(letter_bp)  # 注册蓝图
 
 
 

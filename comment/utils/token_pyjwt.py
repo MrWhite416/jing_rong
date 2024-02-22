@@ -41,7 +41,7 @@ def verify_tokens(token_str):
         data = jwt.decode(token_str, key=const.SECRET_KEY, algorithms='HS256')
         current_app.logger.info(data)
         user = User.query.filter(User.id == data['id']).first()
-        if user and user.onlock != 0:
+        if user and user.onlock == 0:
             return {'id': user.id}
         else:
             return {'message': '数据库中不存在该用户，或者用户已过期'}

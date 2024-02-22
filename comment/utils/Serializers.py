@@ -21,7 +21,7 @@ class BasePaginateSerializer(object):
         self.page = self.pg.page  # 当前页的页码
         self.pages = self.pg.pages  # 匹配的元素在当前配置一共有多少页
         self.total = self.pg.total  # 匹配的元素总数
-        self.page_size = self.pg.page_size  # 一页最多显示多少条数据
+        self.page_size = self.pg.per_page  # 一页最多显示多少条数据
 
     def get_object(self, obj):
         """对象的内容,序列化的个性操作,子类重写"""

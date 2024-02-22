@@ -1,0 +1,6 @@
+[2024-02-18 20:45:37,318] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-02-18 20:48:45,664] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-02-18 20:48:48,826] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 56 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4MjY0MTI4fQ.YdFEaaIWI_JZdeP-NzfVvrnyRJgxe7RRSgCuUPDQqa0
+[2024-02-18 20:48:48,827] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708264128}
+[2024-02-18 20:49:03,923] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : 测试token
+[2024-02-18 20:49:35,994] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708264128}

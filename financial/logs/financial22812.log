@@ -1,0 +1,11 @@
+[2024-02-18 21:36:09,310] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-02-18 21:36:17,982] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 56 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4MjY2OTc3fQ.ZM_1J5Y9c101OUx7_ah2QsooMG1Y6rI_AhFGO8gJje0
+[2024-02-18 21:36:17,982] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708266977}
+[2024-02-18 21:36:17,985] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : 测试token
+[2024-02-18 21:36:30,448] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 ERROR 在 token_pyjwt 50 : Invalid header string: 'utf-8' codec can't decode byte 0x8e in position 5: invalid start byte
+[2024-02-18 21:36:37,415] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 ERROR 在 token_pyjwt 50 : Invalid header string: 'utf-8' codec can't decode byte 0x8e in position 5: invalid start byte
+[2024-02-18 21:36:48,023] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 56 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4MjY3MDA4fQ.oyxIzHLPqEGcg2L5_5Gl-2q6EwE_FLHnDu8cNP2FMg8
+[2024-02-18 21:36:48,024] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708267008}
+[2024-02-18 21:36:48,026] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : 测试token
+[2024-02-18 21:37:00,436] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708267008}
+[2024-02-18 21:37:13,396] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_avatar 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708267008}

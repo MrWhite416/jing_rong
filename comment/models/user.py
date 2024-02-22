@@ -23,7 +23,7 @@ class User(db.Model):
     inviteId = db.Column(db.Integer, comment='邀请码')
     ip = db.Column(db.String(128), comment='ip')
     phone = db.Column(db.String(11), comment='手机号')
-    onlock = db.Column(db.Integer, comment='用户状态')  # 0代码表示上锁
+    onlock = db.Column(db.Integer, comment='用户状态',default=0)  # 0代码表示正常
     phoneStatus = db.Column(db.Integer, comment='手机验证', default=1)  # 1代码正常
     realName = db.Column(db.String(64), comment='真实姓名')
     remark = db.Column(db.String(500), comment='备注')

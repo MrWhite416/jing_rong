@@ -1,5 +1,6 @@
 # 开发时间：2024/2/13  15:32
 # The road is nothing，the end is all    --Demon
+import os.path
 import random
 import json
 
@@ -109,6 +110,8 @@ class UserAvatar(Resource):
 
         file_path = img_dir + '\\' + img_name
 
+        print(os.path.exists(img_dir),'++++++++')
+        print(img_dir)
         # 保存文件
         img_data.save(file_path)
 
@@ -153,6 +156,8 @@ class RegisterUser(Resource):
 
         # 从redis中获取之前保存的验证码
         real_code = fr.get(f'registerCode:{phone}')
+        print(real_code,'++++++++++++++')
+        print(code,real_code.decode())
         if not real_code or code != real_code.decode():
             current_app.logger.info('验证码错误或者失效！')
             return {'message':'验证码错误或者失效！','code':201}

@@ -1,0 +1,12 @@
+[2024-02-18 21:08:04,708] 127.0.0.1  请求 http://127.0.0.1:5000/user/sendSMS?phone=19909063110 	 INFO 在 user_resource 224 : 给手机号为：19909063110，发送短信成功！
+[2024-02-18 21:09:41,864] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=695586&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:10:00,507] 127.0.0.1  请求 http://127.0.0.1:5000/user/sendSMS?phone=19909063110 	 INFO 在 user_resource 224 : 给手机号为：19909063110，发送短信成功！
+[2024-02-18 21:10:12,588] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=739700&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:11:02,204] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=739700&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:11:03,628] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=739700&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:14:26,739] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=739700&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:16:44,534] 127.0.0.1  请求 http://127.0.0.1:5000/user/sendSMS?phone=19909063110 	 INFO 在 user_resource 224 : 给手机号为：19909063110，发送短信成功！
+[2024-02-18 21:16:54,503] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=225017&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:25:58,553] 127.0.0.1  请求 http://127.0.0.1:5000/user/sendSMS?phone=19909063110 	 INFO 在 user_resource 224 : 给手机号为：19909063110，发送短信成功！
+[2024-02-18 21:26:25,470] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=225017&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
+[2024-02-18 21:26:53,099] 127.0.0.1  请求 http://127.0.0.1:5000/user/user_register?phone=199069063110&code=455439&password=123456&username=元英 	 INFO 在 user_resource 157 : 验证码错误或者失效！
