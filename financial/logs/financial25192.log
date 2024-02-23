@@ -1,0 +1,5 @@
+[2024-02-23 17:30:23,186] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4Njg0MjIzfQ.Yut_wkwQtPMTqWy0jYCQYgTYTja_rltC_DMMhzK9R60
+[2024-02-23 17:30:23,186] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708684223}
+[2024-02-23 17:30:23,188] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 58 : 测试token
+[2024-02-23 17:30:32,016] 127.0.0.1  请求 http://127.0.0.1:5000/card/card_resource 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708684223}
+[2024-02-23 19:00:01,247] 127.0.0.1  请求 http://127.0.0.1:5000/card/card_resource 	 ERROR 在 token_pyjwt 50 : Signature has expired

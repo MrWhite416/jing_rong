@@ -1,0 +1,11 @@
+[2024-02-23 19:06:29,758] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4Njg5OTg5fQ.tDh9L_UPH-M3iJlTI-udxnXgt26qteb4uoH76Dmyvw4
+[2024-02-23 19:06:29,758] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708689989}
+[2024-02-23 19:06:29,760] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : 测试token
+[2024-02-23 19:07:15,147] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4NjkwMDM1fQ.-bf0N-I6ySvrhbDNT6_5DgqV-jAIucYwMUMV4f-axVI
+[2024-02-23 19:07:15,148] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708690035}
+[2024-02-23 19:07:15,149] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 58 : 测试token
+[2024-02-23 19:09:20,767] 127.0.0.1  请求 http://127.0.0.1:5000/card/card_resource?holder=元英&openingBank=天地银行&bankBranch=天地分行&cityId=0001&cardNum=1100112233561133697 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-02-23 19:09:24,147] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA4NjkwMTY0fQ.SfnI03jYIS-Y1i5Df1vkMQxsKrsLQDVxh4jGg6ycPqI
+[2024-02-23 19:09:24,147] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708690164}
+[2024-02-23 19:09:24,149] 127.0.0.1  请求 http://127.0.0.1:5000/user/login?username=元英&password=123456 	 INFO 在 user_resource 58 : 测试token
+[2024-02-23 19:09:35,066] 127.0.0.1  请求 http://127.0.0.1:5000/card/card_resource?holder=元英&openingBank=天地银行&bankBranch=天地分行&cityId=0001&cardNum=1100112233561133697 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1708690164}

@@ -1,0 +1,1 @@
+[2024-02-23 17:11:30,511] 127.0.0.1  ЧыЧѓ http://127.0.0.1:5000/card/card_resource 	 ERROR дк token_pyjwt 50 : Signature verification failed
