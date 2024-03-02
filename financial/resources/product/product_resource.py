@@ -28,6 +28,27 @@ class InvestProduct(Resource):
         return {'msg':'success','data':data}
 
 
+class ProductRate(Resource):
+    '''
+    产品利率的资源类
+    '''
+
+
+    def get(self):
+        '''
+        返回一个产品的利率列表
+        :return:
+        '''
+        rp = RequestParser()
+        rp.add_argument('proID',required=True)
+
+        args = rp.parse_args()
+        p_ID = args.get('proID')
+        rate_list = Product_rate.query.filter(Product_rate.productId == p_ID).all()
+
+        data = ProductRateListSerializer(rate_list).to_dict()
+        return {'msg':'success','data':data}
+
 
 
 

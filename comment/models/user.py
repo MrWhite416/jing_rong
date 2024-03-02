@@ -20,7 +20,7 @@ class User(db.Model):
     payPwdStatus = db.Column(db.Integer, comment='支付密码验证', default=0)
     email = db.Column(db.String(100), comment='邮箱')
     emailStatus = db.Column(db.Integer, comment='邮箱验证', default=0)  # 1代码正常
-    inviteId = db.Column(db.Integer, comment='邀请码')
+    inviteId = db.Column(db.String(64), comment='邀请码')
     ip = db.Column(db.String(128), comment='ip')
     phone = db.Column(db.String(11), comment='手机号')
     onlock = db.Column(db.Integer, comment='用户状态',default=0)  # 0代码表示正常
