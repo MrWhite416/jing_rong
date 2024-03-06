@@ -1,0 +1,5 @@
+[2024-02-28 21:11:42,895] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 57 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA5MTI5NTAyfQ.cNMKbx9AcaNBhekBq3KXjsJkmc2fBWP1jQ_rdhQKB2Q
+[2024-02-28 21:11:42,896] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709129502}
+[2024-02-28 21:11:42,898] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : 测试token
+[2024-02-28 21:11:49,617] 127.0.0.1  请求 http://127.0.0.1:5000/account/recharge 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-02-28 21:11:53,656] 127.0.0.1  请求 http://127.0.0.1:5000/account/recharge 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709129502}

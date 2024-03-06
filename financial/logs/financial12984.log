@@ -1,0 +1,4 @@
+[2024-03-02 15:30:20,654] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 56 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA5MzY4MjIwfQ.A2biq-EO6L9nh1Tqa_WyTENkRpGgBUgWYNQcty6ViTc
+[2024-03-02 15:30:20,655] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709368220}
+[2024-03-02 15:30:20,658] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 57 : 测试token
+[2024-03-02 15:30:39,813] 127.0.0.1  请求 http://127.0.0.1:5000/user/invite 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709368220}
