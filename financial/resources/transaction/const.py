@@ -21,4 +21,4 @@ class LoanConfig(Enum):
     借款的年利率
     '''
 
-    YEAR_RATE = 0.11
+    YEAR_RATE = 0.055
