@@ -24,7 +24,7 @@ def creat_app(run_type):
     lmt.init_app(app)
 
     # 初始化Redis的数据库连接
-    from comment.utils.Flnancial_Redis import fr
+    from comment.utils.Financial_Redis import fr
     fr.init_app(app)
  
     # 初始化日志处理工具

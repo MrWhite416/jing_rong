@@ -2,7 +2,7 @@
 # The road is nothing，the end is all    --Demon
 
 from datetime import datetime, timedelta
-from dateutil import relativedelta
+from dateutil.relativedelta import relativedelta
 from flask import current_app, g
 from flask_restful import Resource
 from flask_restful.reqparse import RequestParser
@@ -13,8 +13,9 @@ from comment.models.debt_info import Debt_info
 from comment.models.debt_repay import Debtor_repay
 from comment.models.loanApply import Loan
 from comment.models.user import User
-from comment.utils.Financial_redis import fr
-from comment.utils.generate_trad_id import gen_trad_id, decimal_truncation
+from comment.utils.Financial_Redis import fr
+from comment.utils.generate_trad_id import gen_trad_id
+from decimal import Decimal
 
 
 # 借款
@@ -40,21 +41,22 @@ class LoanApply(Resource):
 
         # 验证传入的验证码是否正确
         # 从redis中获取之前保存的验证码
-        try:
-            real_code= fr.get('registerCode:{}'.format(cur_user.phone))
-            if not real_code or real_code.decode != code:  # 数据库中没有code
-                current_app.logger.info('验证码错误或失效')
-                return {'message':'验证码错误或失效','code':201}
-        except ConnectionError as e:
-            current_app.logger.error(e)
-            return {'message':'验证码判断的时候，数据库连接错误','code':201}
+        # try:
+        #     real_code= fr.get('registerCode:{}'.format(cur_user.phone))
+        #     if not real_code or real_code.decode != code:  # 数据库中没有code
+        #         current_app.logger.info('验证码错误或失效')
+        #         return {'message':'验证码错误或失效','code':201}
+        # except ConnectionError as e:
+        #     current_app.logger.error(e)
+        #     return {'message':'验证码判断的时候，数据库连接错误','code':201}
 
-            # 创建借款记录
-            apply = Loan(loanNum=amount, lUid=user_id, duration=loan_month, lName=username, lRate=LoanConfig.YEAR_RATE,
-                         lRepayDay=datetime.now().day)
-            db.session.add(apply)
-            db.session.commit()
-            return {'msg': 'success'}
+        # 创建借款记录
+        apply = Loan(loanNum=amount, lUid=user_id, duration=loan_month,
+                     lName=username, lRate=LoanConfig.YEAR_RATE.value,
+                     lRepayDay=datetime.now().day)
+        db.session.add(apply)
+        db.session.commit()
+        return {'msg': 'success'}
 
         # 获取借款列表
 
@@ -96,22 +98,23 @@ class LoanApply(Resource):
         rp.add_argument('applyId')  # 借款申请
         rp.add_argument('status')  # 借款状态
         args = rp.parse_args()
-        loan_id = args.appluId
+        loan_id = args.applyId
         status = args.status
 
         #  查询借款对象
-        loan = Loan.query.filter(Loan.id == loan_id).filter()
+        loan = Loan.query.filter(Loan.id == loan_id).first()
         # 第一步：更新借款申请状态
-        loan.update({'status':status})
+        loan.status = int(status)
 
+        # 审批通过
         if status == '1':
             # 第二步：产生债权数据
             debt_no = gen_trad_id('debt')
-            debtors_id=loan.user.idNum
+            debtors_id=loan.user.idNum  # 身份号码
             # 还款的最后时间
             end_date = datetime.now() + relativedelta(month=loan.duration)
             # 创建债权
-            new_debt = Debt_info(debtNo=debt_no, debtorsName=loan.lName, loanNo=debt_no,
+            new_debt = Debt_info(debtNo=debt_no, debtorsName=loan.lName, loanNo=loan.id,
                                 debtorsId=debtors_id, loanStartDate=datetime.now(), loanPeriod=loan.duration,
                                 loanEndDate=end_date, repaymentStyle=loan.lRepayType, matchedMoney=0,
                                 repaymenDate=loan.lRepayDay, repaymenMoney=loan.loanNum, matchedStatus=0,
@@ -124,20 +127,22 @@ class LoanApply(Resource):
             # 一次性提交事务
             db.session.commit()
 
+        return {'mag':'success'}
+
     def create_repay_list(self,new_debt):
         '''创建当前债权的还款计划'''
 
         # 月还款本金：借款的金额 / 借款的期数
-        mount_cost = round(new_debt.repaymenMony / new_debt.loanPeriod,2)  # 四舍五入小数点后后两位
+        mount_cost = round(new_debt.repaymenMoney / new_debt.loanPeriod,2)  # 四舍五入小数点后后两位
         # 月利息= 年利息/12
-        mount_rate = round(LoanConfig.YEAR_RATE / 12,4)
+        mount_rate = round(LoanConfig.YEAR_RATE.value / 12,4)
 
         for m in range(1,new_debt.loanPeriod+1):
             # 每一期要还的利息 = 剩下的本金*月利息
-            interest = round(new_debt.repaymenMony - mount_cost*
-                             (m-1)*mount_rate,2)
+            interest = round(new_debt.repaymenMoney - mount_cost*
+                             (m-1)*Decimal(mount_rate),2)
             # 每一期要还款的总金额=每月本金+每月利息
-            total = round(interest + mount_cost,2)
+            total = float(round(interest + mount_cost,2))
             # 创建每一期的还款计划对象
             repay_plan = Debtor_repay(claimsId=new_debt.id, receivableMoney=total,
                                       currentTerm=m, recordDate=datetime.now())

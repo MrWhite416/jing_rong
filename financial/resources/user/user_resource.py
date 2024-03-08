@@ -11,7 +11,7 @@ from comment.models.user import User
 from comment.models.account import Account
 from comment.utils.limiter import limiter as lmt
 from comment.utils.SMS import send_code
-from comment.utils.Flnancial_Redis import fr
+from comment.utils.Financial_Redis import fr
 from comment.models import db
 from financial.resources.user import constans
 from flask_limiter.util import get_remote_address

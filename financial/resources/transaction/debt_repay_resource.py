@@ -14,7 +14,7 @@ from comment.models.debt_repay import Debtor_repay
 from comment.models.loanApply import Loan
 from comment.models.user import User
 from comment.utils.decorators import login_required
-from comment.utils.generate_trad_id import gen_trad_id, decimal_truncation
+from comment.utils.generate_trad_id import gen_trad_id
 
 
 class RepayPlan(Resource):
