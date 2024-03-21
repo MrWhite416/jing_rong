@@ -4,7 +4,7 @@ from comment.models import db
 from sqlalchemy import ForeignKey
 
 
-# 债权还款的模型类
+# 债权还款计划的模型类
 class Debtor_repay(db.Model):
     __tablename__ = 't_debtor_record'
     id = db.Column(db.BIGINT, primary_key=True, autoincrement=True, comment='主键')

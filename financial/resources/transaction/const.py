@@ -14,6 +14,7 @@ class DealType(Enum):
     invest = 3  # 投资
     income = 4  # 收益
     recycle = 5  # 回收本金
+    match = 6  # 匹配结果
 
 
 class LoanConfig(Enum):
