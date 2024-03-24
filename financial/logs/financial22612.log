@@ -1,0 +1,5 @@
+[2024-03-09 22:35:14,782] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA5OTk4NTE0fQ.PqACAFu-aIgq-tbMNsVOxBvJ12DwGXiIhVO8kCiyVXc
+[2024-03-09 22:35:14,783] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709998514}
+[2024-03-09 22:35:14,785] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 59 : 测试token
+[2024-03-09 22:35:26,667] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709998514}
+[2024-03-09 22:35:26,677] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 ERROR 在 invest_resource 166 : 'Account' object has no attribute 'investmentA'

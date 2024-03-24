@@ -1,0 +1,4 @@
+[2024-03-09 22:42:54,328] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNzA5OTk4OTc0fQ.aeMKv7C4pgOvbxf89ciUJdQxAqMWAb44EXu6VAGGw14
+[2024-03-09 22:42:54,329] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1709998974}
+[2024-03-09 22:42:54,331] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 59 : 测试token
+[2024-03-09 22:43:04,338] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1709998974}

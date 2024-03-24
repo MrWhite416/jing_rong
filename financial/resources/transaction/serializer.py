@@ -1,5 +1,6 @@
 # 开发时间：2024/2/23  15:26
 # The road is nothing，the end is all    --Demon
+from datetime import datetime
 
 from comment.utils.Serializers import BasePaginateSerializer,BaseListSerializer
 class InvestRecordPaginateSerializer(BasePaginateSerializer):
@@ -18,8 +19,6 @@ class InvestRecordPaginateSerializer(BasePaginateSerializer):
             'status': obj.pStatus
         }
 
-
-
 class DealRecordPaginateSerializer(BasePaginateSerializer):
     """交易记录列表的分页序列化"""
 
@@ -32,8 +31,6 @@ class DealRecordPaginateSerializer(BasePaginateSerializer):
             'aAfter_Money': float(obj.aAfterTradingMoney),
             'deal_status': '交易成功' if obj.aTransferStatus else '交易失败'
         }
-
-
 
 class DebtPaginateSerializer(BasePaginateSerializer):
     """债权的分页序列化"""
@@ -109,4 +106,55 @@ class RepayPlanSerializer(BaseListSerializer):
                 }
             )
         return list
+
+
+class AllMatchedPaginateSerializer(BasePaginateSerializer):
+    """
+    所有的待匹配资金 和 已经匹配资金的序列化
+    """
+
+    def get_object(self, obj):
+        return {
+            'weigh': 0,
+            'username': obj.investRecord.user.username,
+            "InvestRecordNum": obj.investRecord.pSerialNo,
+            "productName": obj.investRecord.product.productName,
+            'investDate': obj.investRecord.pDate.strftime("%Y-%m-%d"),
+            'period': obj.investRecord.pDeadlineAsDay / 30,
+            'notMatchedMoney': float(obj.fNotMatchedMoney),
+            'matchStatus': obj.matchedStatus,
+        }
+
+
+class ExpectedReturnPaginateSerializer(BasePaginateSerializer):
+    """预期收益表的分页序列化"""
+
+    def get_object(self, obj):
+        return {
+            'return_id': obj.id,
+            'userId': obj.userId,
+            'productId': obj.product.productName,
+            "investRcordID": obj.investRecord,
+            "expectedDate": obj.expectedDate.strftime("%Y-%m-%d"),
+            # date 日期的 时间戳
+            'expectedStamp': datetime.timestamp(datetime(obj.expectedDate.date().year, obj.expectedDate.date().month,
+                                                         obj.expectedDate.date().day)),
+            'return_Money': float(obj.expectedMoney),
+
+        }
+
+
+class MatchedResultPaginateSerializer(BasePaginateSerializer):
+    """ 匹配结果分页 序列化"""
+
+    def get_object(self, obj):
+        return {
+            'userId': obj.userId,
+            'debtId': obj.debtId,
+            "investId": obj.investId,
+            "transNo": obj.transferSerialNo,
+            'Money': float(obj.purchaseMoney),
+            'matchDate': obj.matchDate.strftime("%Y-%m-%d %H:%M:%S")
+        }
+
 

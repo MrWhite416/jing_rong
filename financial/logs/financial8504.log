@@ -1,0 +1,5 @@
+[2024-03-09 21:41:23,752] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA5OTk1MjgzfQ.kpSfXn4RXt3unWIqpIgUEdMO92_0ubLHY1Dm7g3QRkM
+[2024-03-09 21:41:23,753] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709995283}
+[2024-03-09 21:41:23,755] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 59 : 测试token
+[2024-03-09 21:41:51,828] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709995283}
+[2024-03-09 21:41:51,838] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 ERROR 在 invest_resource 163 : 'Account' object has no attribute 'update'

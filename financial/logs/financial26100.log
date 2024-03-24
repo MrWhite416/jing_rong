@@ -1,0 +1,2 @@
+[2024-03-09 21:41:15,427] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 ERROR 在 token_pyjwt 50 : Signature verification failed
+[2024-03-09 21:41:15,511] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 ERROR 在 invest_resource 163 : 'NoneType' object has no attribute 'balance'

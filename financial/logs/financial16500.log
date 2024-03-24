@@ -1,0 +1,16 @@
+[2024-03-09 22:36:20,714] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNzA5OTk4NTgwfQ.QWJuElh2OfSYog9BmYviiF9NhxSLySq4IKS3LfUf0tw
+[2024-03-09 22:36:20,715] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709998580}
+[2024-03-09 22:36:20,717] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 59 : 测试token
+[2024-03-09 22:36:28,872] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 INFO 在 token_pyjwt 42 : {'id': 1, 'exp': 1709998580}
+[2024-03-09 22:36:28,901] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 ERROR 在 invest_resource 166 : (pymysql.err.ProgrammingError) (1146, "Table 'finance.t_funding_not_matched' doesn't exist")
+[SQL: INSERT INTO t_funding_not_matched (`fInvestRecordId`, `fNotMatchedMoney`, `fFoundingType`, `fFoundingWeight`, `matchedStatus`, `fCreateDate`) VALUES (%(fInvestRecordId)s, %(fNotMatchedMoney)s, %(fFoundingType)s, %(fFoundingWeight)s, %(matchedStatus)s, %(fCreateDate)s)]
+[parameters: {'fInvestRecordId': 1, 'fNotMatchedMoney': 5500, 'fFoundingType': 1, 'fFoundingWeight': 1, 'matchedStatus': 0, 'fCreateDate': 0}]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+[2024-03-09 22:39:54,611] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNzA5OTk4Nzk0fQ.Q5_4FJUBwV7SEZX0SSR-DfvDeYsS6TblAvnt1igBqRQ
+[2024-03-09 22:39:54,612] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1709998794}
+[2024-03-09 22:39:54,614] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 59 : 测试token
+[2024-03-09 22:40:04,541] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1709998794}
+[2024-03-09 22:40:04,555] 127.0.0.1  请求 http://127.0.0.1:5000/tran/invest 	 ERROR 在 invest_resource 166 : (pymysql.err.ProgrammingError) (1146, "Table 'finance.t_funding_not_matched' doesn't exist")
+[SQL: INSERT INTO t_funding_not_matched (`fInvestRecordId`, `fNotMatchedMoney`, `fFoundingType`, `fFoundingWeight`, `matchedStatus`, `fCreateDate`) VALUES (%(fInvestRecordId)s, %(fNotMatchedMoney)s, %(fFoundingType)s, %(fFoundingWeight)s, %(matchedStatus)s, %(fCreateDate)s)]
+[parameters: {'fInvestRecordId': 2, 'fNotMatchedMoney': 5500, 'fFoundingType': 1, 'fFoundingWeight': 1, 'matchedStatus': 0, 'fCreateDate': 0}]
+(Background on this error at: https://sqlalche.me/e/14/f405)

@@ -39,7 +39,7 @@ class Invest_record(db.Model):
     pCurrentMonth = db.Column(db.Integer, comment='当前期（用户购买产品记录表）')
     pDeductInterest = db.Column(db.Float(8, 2), comment='扣去利息')
     pNotInvestMoney = db.Column(db.Float(10, 2), comment='未投资金额')
-    pStatus = db.Column(db.Integer, comment='状态')  # 1表示产生收益了
+    pStatus = db.Column(db.Integer, comment='状态')  # 1表示产生收益了 2代表收益结束，投资结束
     pEndInvestTotalMoney = db.Column(db.Float(8, 2), comment='到期应回总本息')
     pCurrentRealTotalMoney = db.Column(db.Float(8, 2), comment='当前期实回总本息')
     pDeadlineCount = db.Column(db.Float(8, 2), comment='统计')

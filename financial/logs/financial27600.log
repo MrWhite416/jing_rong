@@ -1,0 +1,6 @@
+[2024-03-24 23:28:23,741] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 58 : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNzExMjk3NzAzfQ.4c2kGYKJyoC2KWnJi2MhoUoea6WqqtZUkP2Qhfx-MhI
+[2024-03-24 23:28:23,742] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1711297703}
+[2024-03-24 23:28:23,748] 127.0.0.1  请求 http://127.0.0.1:5000/user/login 	 INFO 在 user_resource 59 : 测试token
+[2024-03-24 23:28:39,196] 127.0.0.1  请求 http://127.0.0.1:5000/tran/exceptedReturn?cur_page=1&per_page=2 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1711297703}
+[2024-03-24 23:31:47,386] 127.0.0.1  请求 http://127.0.0.1:5000/tran/matchedResult 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1711297703}
+[2024-03-24 23:32:30,259] 127.0.0.1  请求 http://127.0.0.1:5000/tran/matchedResult?cur_page=1&per_page=1 	 INFO 在 token_pyjwt 42 : {'id': 2, 'exp': 1711297703}

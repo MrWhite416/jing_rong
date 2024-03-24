@@ -13,6 +13,7 @@ class Expected_return(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     userId = db.Column(db.BIGINT, ForeignKey('t_user.id'), comment='用户ID')
     productId = db.Column(db.BIGINT, ForeignKey('t_product.proId'), comment='产品ID')
+    product = db.relationship('Product')
     investRecord = db.Column(db.BIGINT, ForeignKey('t_invest_record.pId'), comment='投资记录ID')
     expectedDate = db.Column(db.DateTime, comment='收益日期')
     expectedMoney = db.Column(db.Float(8, 2), comment='收益金额', default=0)
