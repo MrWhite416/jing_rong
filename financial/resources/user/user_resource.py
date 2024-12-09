@@ -59,6 +59,9 @@ class Login(Resource):
                 current_app.logger.info('测试token', verify_tokens(token))
                 return {"token": token}
             return {'message': '用户名或者密码错误', 'code': 201}
+        else:
+            # 用户不存在
+            return {"message":"用户不存在！","code":204}
 
 
 class LoginOut(Resource):

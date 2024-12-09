@@ -7,7 +7,7 @@ from comment.utils.token_pyjwt import verify_tokens
 
 def jwt_request_authorization():
     '''
-    自定义一个请求钩子，验证·token，并把验证成功之后的
+    自定义一个请求钩子，验证token，并把验证成功之后的
     用户id保存到全局变量g中
     :return:
     '''
